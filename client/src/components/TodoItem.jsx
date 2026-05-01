@@ -28,8 +28,8 @@ const TodoItem = ({todo, onToggle, onEdit, onDelete}) => {
             onChange={() => onToggle(todo._id)}
             className="mt-1 w-4 h-4 cursor-pointer accent-blue-500"
         />
-        
-        <div className="flex-1">
+
+        <div className="flex-1 min-w-0">
             {isEditing ? (
                 <div className="flex flex-col gap-2">
                     <input
@@ -75,6 +75,21 @@ const TodoItem = ({todo, onToggle, onEdit, onDelete}) => {
                                 {todo.description}
                             </p>
                         )}
+
+                        <div className="flex flex-wrap gap-x-4 mt-2">
+                            <p className="text-xs text-slate-500">
+                                Created: {new Date(todo.createdAt).toLocaleString('en-US', {
+                                    month: 'short', day: 'numeric', year: 'numeric',
+                                    hour: '2-digit', minute: '2-digit',
+                                })}
+                            </p>
+                            <p className="text-xs text-slate-500">
+                                Updated: {new Date(todo.updatedAt).toLocaleString('en-US', {
+                                    month: 'short', day: 'numeric', year: 'numeric',
+                                    hour: '2-digit', minute: '2-digit',
+                                })}
+                            </p>
+                        </div>
                     </div>
                 )
             }
