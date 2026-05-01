@@ -1,16 +1,43 @@
-# React + Vite
+# TODO App — Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React + Vite + Tailwind CSS frontend for the TODO app.
 
-Currently, two official plugins are available:
+## Prerequisites
+- Node.js 18+
+- Backend server running on `http://localhost:5000`
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Setup
 
-## React Compiler
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+2. Make sure the backend server is running first (see `../server/README.md`).
 
-## Expanding the ESLint configuration
+## Running
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+npm run dev
+```
+
+App runs on `http://localhost:5173`.
+
+API requests to `/api/*` are proxied to `http://localhost:5000` via Vite's proxy config.
+
+## Features
+
+- View all todos
+- Add a todo with title and optional description
+- Edit a todo's title and description inline
+- Toggle done/undone with a checkbox
+- Delete a todo
+- Completed todos shown with strikethrough and faded style
+- Form validation — empty title is blocked
+- Optimistic UI updates — changes appear instantly before API confirms
+- Loading and error states handled gracefully
+
+## Assumptions & Limitations
+
+- Requires the backend to be running locally on port 5000.
+- No authentication — single user assumed.
