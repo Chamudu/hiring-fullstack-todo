@@ -11,7 +11,7 @@ const useTodos = () => {
             try {
                 const res = await api.getTodos();
                 setTodos(res.data);
-            } catch (error) {
+            } catch {
                 setError('Loading Failed');
             } finally {
                 setLoading(false);
@@ -40,7 +40,7 @@ const useTodos = () => {
             setTodos((prevTodo) => 
                 prevTodo.map((todo) => 
                     (todo._id === id ? res.data : todo)));
-        }catch (err) {
+        }catch {
             setTodos((prevTodo) => 
                 prevTodo.map((todo) => 
                     (todo._id === id ? original : todo)));
@@ -59,11 +59,11 @@ const useTodos = () => {
             const res = await api.toggleDone(id);
             setTodos((prevTodo) =>
                 prevTodo.map((todo) =>
-                    (todo._id === id ? res.data : t)));
-        } catch (err) {
+                    (todo._id === id ? res.data : todo)));
+        } catch {
             setTodos((prevTodo) =>
                 prevTodo.map((todo) =>
-                    (todo._id === id ? original : t)));
+                    (todo._id === id ? original : todo)));
             setError('Failed Update');
         }
     }
@@ -75,7 +75,7 @@ const useTodos = () => {
 
         try {
             await api.deleteTodo(id);
-        } catch (err) {
+        } catch {
             setError ('Delete Failed');
         }
     };
