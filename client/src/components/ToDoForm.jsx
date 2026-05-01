@@ -20,14 +20,14 @@ const TodoForm = ({onAdd}) => {
     };
 
     return (
-        <form onSubmit={handleSubmit} className="flex flex-col gap-3 mb-8">
-            <h2 className="text-xl font-semibold"> Add a New TODO</h2>
+        <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+            <h2 className="text-lg font-semibold text-gray-700">Add a New TODO</h2>
             <input
                 type="text"
                 placeholder="Title"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
-                className="border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                className="border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
             />
             {error && <p className="text-red-500 text-sm">{error}</p>}
 
@@ -35,17 +35,16 @@ const TodoForm = ({onAdd}) => {
                 placeholder="Description (optional)"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
-                className="border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 resize-none"
+                className="border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400 resize-none transition"
                 rows={2}
             />
 
             <button
                 type="submit"
-                className="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 rounded transition-colors"
+                className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 rounded-lg transition-colors"
             >
-                Add TODO
+                + Add TODO
             </button>
-
         </form>
     );
 };

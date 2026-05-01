@@ -6,27 +6,37 @@ function App() {
   const {todos, loading, error, addTodo, editTodo, toggleTodo, removeTodo} = useTodos();
   
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="max-w-2xl mx-auto px-4 py-10">
-          <h1 className="text-3xl font-bold text-center mb-8">TODO App</h1>
-          
-          <TodoForm onAdd={addTodo} />
+    <div className="min-h-screen bg-gray-100">
+      <div className="max-w-2xl mx-auto px-4 py-12">
 
-          {error && (
-            <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
-              {error}
-            </div>
-          )}
-          
-          {loading ? (
-            <p className="text-center text-gray-400 mt-10">Loading...</p>
-          ) : (
-            <TodoList
-              todos={todos}
-              onToggle={toggleTodo}
-              onEdit={editTodo}
-              onDelete={removeTodo}
-            />
+        <div className="mb-8 text-center">
+          <h1 className="text-4xl font-bold tracking-tight text-gray-800">
+            My <span className="text-blue-500">TODOs</span>
+          </h1>
+          <p className="text-gray-400 mt-1 text-sm">Stay organized. Get things done.</p>
+        </div>
+
+        <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-200 mb-6">
+          <TodoForm onAdd={addTodo} />
+        </div>
+
+        {error && (
+          <div className="bg-red-50 border border-red-300 text-red-600 px-4 py-3 rounded-xl mb-4 text-sm">
+            {error}
+          </div>
+        )}
+
+        {loading ? (
+          <div className="flex justify-center mt-16">
+            <div className="w-8 h-8 border-4 border-blue-400 border-t-transparent rounded-full animate-spin" />
+          </div>
+        ) : (
+          <TodoList
+            todos={todos}
+            onToggle={toggleTodo}
+            onEdit={editTodo}
+            onDelete={removeTodo}
+          />
         )}
       </div>
     </div>
