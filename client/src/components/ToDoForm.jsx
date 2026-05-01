@@ -9,7 +9,7 @@ const TodoForm = ({onAdd}) => {
         e.preventDefault();
 
         if (!title.trim()) {
-            setError('Tittle required!');
+            setError('Title required!');
             return;
         }
 
