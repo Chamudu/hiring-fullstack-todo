@@ -25,15 +25,16 @@ const createTodo = async (req, res) => {
 
 const updateTodo = async (req, res) => {
     try {
-        const {tile, description} = req.body;
+        const {title, description} = req.body;
         const todo = await Todo.findByIdAndUpdate(
             req.params.id, {title, description}, {new: true, runValidators: true}
         );
         if (!todo) {
-            return res.status(404).json({message: 'Todo not Founf'});
+            return res.status(404).json({message: 'Todo not found'});
         }
         res.json(todo);
-    }catch {
+
+    }catch (error) {
         res.status(400).json({message: error.message});
     }
 };
@@ -58,7 +59,7 @@ const toggledone = async (req, res) => {
 
 const deleteTodo = async (req, res) => {
     try {
-        const todo = await Todo.findByIdAndDelete(req.param.id);
+        const todo = await Todo.findByIdAndDelete(req.params.id);
 
         if(!todo) {
             return res.status(404).json({message: "Todo not found"})
@@ -67,7 +68,7 @@ const deleteTodo = async (req, res) => {
 
         res.status(204).send(); // no content
     }catch(error) {
-        res.staus(500).json({message: 'Failed to delete todo'});
+        res.status(500).json({message: 'Failed to delete todo'});
     }
 };
 
