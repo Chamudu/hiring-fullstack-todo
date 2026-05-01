@@ -14,6 +14,13 @@ function App() {
             My <span className="text-blue-500">TODOs</span>
           </h1>
           <p className="text-gray-400 mt-1 text-sm">Stay organized. Get things done.</p>
+
+          {!loading && (
+            <p className="text-blue-500 font-medium mt-2 text-sm">
+              {todos.filter(t => !t.done).length} remaining · {todos.length} total
+            </p>
+          )}
+          
         </div>
 
         <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-200 mb-6">

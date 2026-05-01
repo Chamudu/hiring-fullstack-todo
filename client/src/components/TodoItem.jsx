@@ -20,7 +20,7 @@ const TodoItem = ({todo, onToggle, onEdit, onDelete}) => {
     };
 
     return(
-        <div className={`flex items-start gap-3 p-4 bg-white border rounded-xl shadow-sm transition-all duration-200 ${todo.done ? 'opacity-60 border-gray-100' : 'border-gray-200 hover:shadow-md'}`}>    
+        <div className={`todo-item flex items-start gap-3 p-4 bg-white border rounded-xl shadow-sm transition-all duration-200 ${todo.done ? 'opacity-60 border-gray-100' : 'border-gray-200 hover:shadow-md'}`}>    
         
         <input
             type="checkbox"
