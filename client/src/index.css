@@ -8,3 +8,13 @@
 .todo-item {
   animation: fadeIn 0.2s ease-out;
 }
+
+@keyframes bump {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.04); }
+}
+
+.title-bump {
+  display: inline-block;
+  animation: bump 3s ease-in-out infinite;
+}

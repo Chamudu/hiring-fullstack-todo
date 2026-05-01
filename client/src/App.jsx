@@ -11,7 +11,7 @@ function App() {
 
         <div className="mb-8 text-center">
           <h1 className="text-4xl font-bold tracking-tight text-gray-800">
-            My <span className="text-blue-500">TODOs</span>
+            <span className='title-bump'> My</span> <span className="text-blue-500">TODOs</span>
           </h1>
           <p className="text-gray-400 mt-1 text-sm">Stay organized. Get things done.</p>
 
@@ -20,7 +20,7 @@ function App() {
               {todos.filter(t => !t.done).length} remaining · {todos.length} total
             </p>
           )}
-          
+
         </div>
 
         <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-200 mb-6">
